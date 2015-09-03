@@ -1,0 +1,10 @@
+---
+jenkins:
+  build: .
+  volumes:
+    - ./data:/var/jenkins_home
+    - /var/run/docker.sock:/var/run/docker.sock
+    - /usr/lib/x86_64-linux-gnu/libapparmor.so.1:/usr/lib/x86_64-linux-gnu/libapparmor.so.1
+    - /usr/bin/docker:/usr/bin/docker
+  ports:
+    - "8080:8080"
