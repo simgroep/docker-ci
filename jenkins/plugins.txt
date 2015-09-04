@@ -1,3 +1,10 @@
 scm-api:latest
 git-client:latest
 git:latest
+gitlab-plugin:latest
+cloverphp:latest
+checkstyle:latest
+pmd:latest
+plot:latest
+jdepend:latest
+crap4j:latest
