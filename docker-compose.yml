@@ -7,7 +7,7 @@ jenkins:
     - /usr/lib/x86_64-linux-gnu/libapparmor.so.1:/usr/lib/x86_64-linux-gnu/libapparmor.so.1
     - /usr/bin/docker:/usr/bin/docker
   ports:
-    - "8080:8080"
+    - "80:8080"
   environment:
     - HOST_PATH=/data/jenkins
     - REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY=/registry
@@ -15,7 +15,7 @@ jenkins:
 registry:
   build: ./registry
   ports:
-    - 5000:5000
+    - 8080:5000
   volumes:
     - /data/registry:/registry
   environment:
