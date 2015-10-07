@@ -9,3 +9,4 @@ plot:latest
 jdepend:latest
 crap4j:latest
 fitnesse:latest
+swarm:latest
