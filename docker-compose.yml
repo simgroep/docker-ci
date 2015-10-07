@@ -5,15 +5,18 @@ jenkins:
     - /data/jenkins/var/jenkins_home:/var/jenkins_home
   ports:
     - "81:8080"
-#  environment:
-#    - HOST_PATH=/data/jenkins
-#    - REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY=/registry
+  environment:
+    - HOST_PATH=/data/jenkins
+    - REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY=/registry
 
-#registry:
-#  build: ./registry
-#  ports:
-#    - 8080:5000
-#  volumes:
-#    - /data/registry:/registry
-#  environment:
-#    - REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY=/registry
+swarm-client:
+  build: ./swarm-client
+
+registry:
+  build: ./registry
+  ports:
+    - 8080:5000
+  volumes:
+    - /data/registry:/registry
+  environment:
+    - REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY=/registry
