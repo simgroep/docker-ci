@@ -1,16 +1,18 @@
 FROM php:5.6-cli
 
-USER root
+ENV XDEBUG_VERSION 2.3.3
+ENV XDEBUG_MD5 60e6fdf41840104a23debe16db15a2af
+ENV CLIENT_NAME Pakjespiet
+ENV EXECUTORS 5
+ENV OAUTH_TOKEN 0bb65b4a90dd9f0e3f6c706a4700dd736d7e5c44
+ENV JENKINS_MASTER http://172.31.0.172/
+ENV SWARM_CLIENT_VERSION 2.0
+
 RUN apt-get update \
         && apt-get install -y sudo default-jre wget git php5-common zlib1g-dev libmcrypt-dev\
         && docker-php-ext-install zip mcrypt\
         && rm -rf /var/lib/apt/lists/*
 
-# Setup the Xdebug version to install
-ENV XDEBUG_VERSION 2.3.3
-ENV XDEBUG_MD5 60e6fdf41840104a23debe16db15a2af
-
-# Install Xdebug
 RUN set -x \
 	&& curl -SL "http://www.xdebug.org/files/xdebug-$XDEBUG_VERSION.tgz" -o xdebug.tgz \
 	&& echo $XDEBUG_MD5 xdebug.tgz | md5sum -c - \
@@ -26,17 +28,12 @@ RUN set -x \
 
 COPY /php-conf.d/ext-xdebug.ini /usr/local/etc/php/conf.d/
 
-USER root
-RUN wget http://maven.jenkins-ci.org/content/repositories/releases/org/jenkins-ci/plugins/swarm-client/2.0/swarm-client-2.0-jar-with-dependencies.jar
+RUN wget http://maven.jenkins-ci.org/content/repositories/releases/org/jenkins-ci/plugins/swarm-client/$SWARM_CLIENT_VERSION/swarm-client-$SWARM_CLIENT_VERSION-jar-with-dependencies.jar
 
-USER root
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-USER root
 COPY /php-conf.d/timezone.ini /usr/local/etc/php/conf.d/timezone.ini
 
-USER root
-RUN /usr/local/bin/composer config -g github-oauth.github.com 0bb65b4a90dd9f0e3f6c706a4700dd736d7e5c44
+RUN /usr/local/bin/composer config -g github-oauth.github.com $OAUTH_TOKEN
 
-USER root
-ENTRYPOINT java -jar swarm-client-2.0-jar-with-dependencies.jar -master http://172.31.0.172/ -labels php56 -executors 5
+ENTRYPOINT java -jar swarm-client-2.0-jar-with-dependencies.jar -master $JENKINS_MASTER -labels php56 -executors $EXECUTORS -name $CLIENT_NAME
