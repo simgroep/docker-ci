@@ -2,8 +2,8 @@ FROM php:5.6-cli
 
 USER root
 RUN apt-get update \
-        && apt-get install -y sudo default-jre wget git php5-common zlib1g-dev \
-        && docker-php-ext-install zip \
+        && apt-get install -y sudo default-jre wget git php5-common zlib1g-dev libmcrypt-dev\
+        && docker-php-ext-install zip mcrypt\
         && rm -rf /var/lib/apt/lists/*
 
 # Setup the Xdebug version to install
@@ -39,4 +39,4 @@ USER root
 RUN /usr/local/bin/composer config -g github-oauth.github.com 0bb65b4a90dd9f0e3f6c706a4700dd736d7e5c44
 
 USER root
-ENTRYPOINT java -jar swarm-client-2.0-jar-with-dependencies.jar -master http://172.31.0.172/ -labels php56
+ENTRYPOINT java -jar swarm-client-2.0-jar-with-dependencies.jar -master http://172.31.0.172/ -labels php56 -executors 5
