@@ -7,7 +7,7 @@ Docker project providing all our ci stuff in one command:
 
 Edit the plugins.txt if you encounter missing jenkins plugins.
 
-Jenkins Swarm Clientient
+Jenkins Swarm Client
 ------------------------
 
 Docker box that will connect to the Docker master that is already running somewhere.
