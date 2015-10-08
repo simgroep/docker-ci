@@ -11,6 +11,8 @@ jenkins:
 
 swarm-client:
   build: ./swarm-client
+  volumes:
+      - ./swarm-client/php-conf.d:/php-conf.d
 
 registry:
   build: ./registry
