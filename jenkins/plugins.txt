@@ -10,3 +10,8 @@ jdepend:latest
 crap4j:latest
 fitnesse:latest
 swarm:latest
+build-monitor-plugin:latest
+build-failure-analyzer:latest
+view-job-filters:latest
+ansible:latest
+emotional-jenkins-plugin:latest
