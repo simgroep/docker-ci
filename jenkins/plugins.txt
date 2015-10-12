@@ -15,3 +15,5 @@ build-failure-analyzer:latest
 view-job-filters:latest
 ansible:latest
 emotional-jenkins-plugin:latest
+analysis-core:latest
+dependency-check-jenkins-plugin:latest
