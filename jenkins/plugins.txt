@@ -18,3 +18,4 @@ emotional-jenkins-plugin:latest
 analysis-core:latest
 dependency-check-jenkins-plugin:latest
 hipchat:latest
+ci-game:latest
