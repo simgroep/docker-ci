@@ -9,11 +9,15 @@ jenkins:
   environment:
     - HOST_PATH=/data/jenkins
     - REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY=/registry
+  extra_hosts:
+    - "settings.simgroep.nl:10.39.18.108"
 
 swarm-client:
   build: ./swarm-client
   volumes:
       - ./swarm-client/php-conf.d:/php-conf.d
+  extra_hosts:
+    - "settings.simgroep.nl:10.39.18.108"
 
 registry:
   build: ./registry
