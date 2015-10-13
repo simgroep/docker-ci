@@ -10,7 +10,7 @@ ENV SWARM_CLIENT_VERSION 2.0
 
 RUN apt-get update \
         && apt-get install -y sudo default-jre wget git php5-common zlib1g-dev libmcrypt-dev python-pip python-dev php5-xhprof\
-        && docker-php-ext-install zip mcrypt bcmath \
+        && docker-php-ext-install zip mcrypt bcmath mbstring\
         && rm -rf /var/lib/apt/lists/*
 
 RUN pip install --upgrade pip && pip install ansible
