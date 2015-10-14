@@ -18,4 +18,4 @@ dependency-check-jenkins-plugin:latest
 hipchat:latest
 ci-game:latest
 sounds:latest
-scm-sync-configuration:latest
+thinBackup:latest
