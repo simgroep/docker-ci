@@ -11,13 +11,10 @@ crap4j:latest
 fitnesse:latest
 swarm:latest
 build-monitor-plugin:latest
-build-failure-analyzer:latest
 view-job-filters:latest
 ansible:latest
-emotional-jenkins-plugin:latest
 analysis-core:latest
 dependency-check-jenkins-plugin:latest
 hipchat:latest
 ci-game:latest
 sounds:latest
-gitlab-merge-request-jenkins:latest
