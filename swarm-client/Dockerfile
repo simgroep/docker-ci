@@ -9,9 +9,11 @@ ENV JENKINS_MASTER http://172.31.0.172/
 ENV SWARM_CLIENT_VERSION 2.0
 
 RUN apt-get update \
-        && apt-get install -y sudo default-jre wget git php5-common zlib1g-dev libmcrypt-dev python-pip python-dev libxml2-dev \
+        && apt-get install -y sudo default-jre wget git php5-common zlib1g-dev libmcrypt-dev python-pip python-dev libxml2-dev libssl-dev \
         && docker-php-ext-install zip mcrypt bcmath mbstring soap gettext mysqli \
         && rm -rf /var/lib/apt/lists/*
+
+RUN pecl install mongo && echo "extension=mongo.so" >> /usr/local/etc/php/conf.d/mongo.ini
 
 RUN pip install --upgrade pip && pip install ansible
 
