@@ -19,3 +19,4 @@ hipchat:latest
 ci-game:latest
 sounds:latest
 thinBackup:latest
+artifactdeployer:latest
