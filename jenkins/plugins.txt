@@ -20,3 +20,4 @@ ci-game:latest
 sounds:latest
 thinBackup:latest
 artifactdeployer:latest
+publish-over-ssh

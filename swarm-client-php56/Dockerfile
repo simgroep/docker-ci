@@ -3,7 +3,7 @@ FROM php:5.6-cli
 ENV XDEBUG_VERSION 2.3.3
 ENV XDEBUG_MD5 60e6fdf41840104a23debe16db15a2af
 ENV CLIENT_NAME Pakjespiet
-ENV EXECUTORS 5
+ENV EXECUTORS 2
 ENV OAUTH_TOKEN 0bb65b4a90dd9f0e3f6c706a4700dd736d7e5c44
 ENV JENKINS_MASTER http://172.31.0.172/
 ENV SWARM_CLIENT_VERSION 2.0
@@ -40,4 +40,4 @@ COPY /php-conf.d/timezone.ini /usr/local/etc/php/conf.d/timezone.ini
 
 RUN /usr/local/bin/composer config -g github-oauth.github.com $OAUTH_TOKEN
 
-ENTRYPOINT java -jar swarm-client-2.0-jar-with-dependencies.jar -master $JENKINS_MASTER -labels php56 -executors $EXECUTORS -name $CLIENT_NAME
+ENTRYPOINT java -jar swarm-client-2.0-jar-with-dependencies.jar -master $JENKINS_MASTER -labels php70 -executors $EXECUTORS -name $CLIENT_NAME
