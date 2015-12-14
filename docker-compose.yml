@@ -26,6 +26,11 @@ swarm-client-php70:
   extra_hosts:
     - "settings.simgroep.nl:10.39.18.108"
 
+swarm-client-ansible:
+  build: ./swarm-client-ansible
+  extra_hosts:
+    - "settings.simgroep.nl:10.39.18.108"
+
 swarm-client-docker:
   build: ./swarm-client-docker
   extra_hosts:
