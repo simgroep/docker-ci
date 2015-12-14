@@ -7,6 +7,7 @@ ENV EXECUTORS 2
 ENV OAUTH_TOKEN 0bb65b4a90dd9f0e3f6c706a4700dd736d7e5c44
 ENV JENKINS_MASTER http://172.31.0.172/
 ENV SWARM_CLIENT_VERSION 2.0
+ENV LABELS php56
 
 RUN apt-get update \
         && apt-get install -y sudo default-jre wget git php5-common zlib1g-dev libmcrypt-dev python-pip python-dev libxml2-dev libssl-dev \
@@ -40,4 +41,4 @@ COPY /php-conf.d/timezone.ini /usr/local/etc/php/conf.d/timezone.ini
 
 RUN /usr/local/bin/composer config -g github-oauth.github.com $OAUTH_TOKEN
 
-ENTRYPOINT java -jar swarm-client-2.0-jar-with-dependencies.jar -master $JENKINS_MASTER -labels php70 -executors $EXECUTORS -name $CLIENT_NAME
+ENTRYPOINT java -jar swarm-client-2.0-jar-with-dependencies.jar -master $JENKINS_MASTER -labels $LABELS -executors $EXECUTORS -name $CLIENT_NAME
