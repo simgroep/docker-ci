@@ -22,3 +22,5 @@ thinBackup:latest
 artifactdeployer:latest
 publish-over-ssh:latest
 nodelabelparameter:latest
+ws-cleanup:latest
+copyartifact:latest
