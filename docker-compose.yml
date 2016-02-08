@@ -16,6 +16,8 @@ swarm-client-php56:
   build: ./swarm-client-php56
   volumes:
       - ./swarm-client-php56/php-conf.d:/php-conf.d
+  volumes_from:
+      - jenkins
   extra_hosts:
     - "settings.simgroep.nl:10.39.18.108"
 
@@ -23,6 +25,8 @@ swarm-client-php70:
   build: ./swarm-client-php70
   volumes:
       - ./swarm-client-php70/php-conf.d:/php-conf.d
+  volumes_from:
+      - jenkins
   extra_hosts:
     - "settings.simgroep.nl:10.39.18.108"
 
