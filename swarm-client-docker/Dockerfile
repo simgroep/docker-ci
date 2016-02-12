@@ -2,7 +2,7 @@ FROM ubuntu:latest
 
 ENV CLIENT_NAME Spacedockpiet
 ENV EXECUTORS 2
-ENV OAUTH_TOKEN 0bb65b4a90dd9f0e3f6c706a4700dd736d7e5c44
+ENV OAUTH_TOKEN composer-ouath-token
 ENV SWARM_CLIENT_VERSION 2.0
 
 RUN apt-get update && \
