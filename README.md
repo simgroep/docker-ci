@@ -3,7 +3,7 @@ Docker Jenkins
 
 Docker project providing all our ci stuff in one command:
 
-    sudo docker-compose up -d
+    docker-compose up -d
 
 Edit the plugins.txt if you encounter missing jenkins plugins.
 
@@ -21,9 +21,10 @@ The following ENV vars can be configured, their default values right behind it:
     CLIENT_NAME Pakjespiet
     EXECUTORS 5
     OAUTH_TOKEN 0bb65b4a90dd9f0e3f6c706a4700dd736d7e5c44
-    JENKINS_MASTER http://172.31.0.172/
     SWARM_CLIENT_VERSION 2.0
-	
+    
+Be sure to edit the JENKINS_MASTER in docker-compose.yml and point it to your Jenkins server.
+
 Configuring Jenkins
 ------------------------
 

@@ -2,7 +2,6 @@ FROM williamyeh/ansible:ubuntu14.04-onbuild
 
 ENV CLIENT_NAME Uitpakpiet
 ENV EXECUTORS 2
-ENV JENKINS_MASTER http://172.31.0.172/
 ENV SWARM_CLIENT_VERSION 2.0
 ENV LABELS ansible
 
