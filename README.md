@@ -19,8 +19,8 @@ The following ENV vars can be configured, their default values right behind it:
     XDEBUG_VERSION 2.3.3
     XDEBUG_MD5 60e6fdf41840104a23debe16db15a2af
     CLIENT_NAME Pakjespiet
-    EXECUTORS 5
-    OAUTH_TOKEN 0bb65b4a90dd9f0e3f6c706a4700dd736d7e5c44
+    EXECUTORS 2
+    OAUTH_TOKEN composer-oauth-token
     SWARM_CLIENT_VERSION 2.0
     
 Be sure to edit the JENKINS_MASTER in docker-compose.yml and point it to your Jenkins server.
